@@ -34,7 +34,7 @@ jobs:
     - name: Set Preview Package
       if: github.event_name == 'workflow_dispatch'
       run: |
-        VERSION_SUFFIX=$(date -u +"%Y%m%d%H%M")
+        VERSION_SUFFIX=preview-$(date -u +"%Y%m%d%H%M")
         echo $VERSION_SUFFIX
         dotnet pack ./src/GaussDB/GaussDB.csproj -c Release -o ./artifacts/nupkgs -p VersionSuffix=$VERSION_SUFFIX
 
